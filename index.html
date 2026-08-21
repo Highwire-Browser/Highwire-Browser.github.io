@@ -1,0 +1,33 @@
+<title>HighWire — Atari Browser</title>
+<meta name="description" content="Future home of the Atari HighWire Browser.">
+<style>
+:root{
+  --ground:#f7f6f1; --ink:#0b1a26; --navy:#093b60; --orange:#f0792a;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){ --ground:#0a1620; --ink:#e9e5db; --navy:#7fb2d8; --orange:#ff9450; }
+}
+:root[data-theme="dark"]{ --ground:#0a1620; --ink:#e9e5db; --navy:#7fb2d8; --orange:#ff9450; }
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0; background:var(--ground); color:var(--ink);
+  font:400 17px/1.6 ui-sans-serif,system-ui,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  display:grid; place-items:center; text-align:center; padding:24px;
+}
+img{display:block;width:min(420px,84vw);height:auto;margin:0 auto 34px}
+p{
+  margin:0;font-size:clamp(1.15rem,3vw,1.5rem);font-weight:700;
+  letter-spacing:-.015em;color:var(--navy);text-wrap:balance;
+}
+hr{
+  width:64px;height:3px;border:0;background:var(--orange);
+  margin:26px auto 0;
+}
+</style>
+
+<main>
+  <img alt="HighWire — why take a taxi, when you can fly?" src="logo.png">
+  <p>Future home of the Atari HighWire Browser.</p>
+  <hr>
+</main>
