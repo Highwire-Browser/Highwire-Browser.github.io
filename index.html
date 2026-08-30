@@ -1,182 +1,35 @@
-<title>HighWire &mdash; Web Browser for Atari</title>
-<meta name="description" content="HighWire is a native web browser for Atari and compatible systems: modern HTML and CSS, HTTPS, and the speed the platform is loved for.">
+<title>HighWire — Atari Browser</title>
+<meta name="description" content="Future home of the Atari HighWire Browser.">
 <style>
-/* Dark-first, on the BASE :root so HighWire (a light-theme UA) shows it too.
-   Flat fills only, a small deliberate palette that holds up at classic Atari
-   colour depths (16/256) -- no gradients, no shadows, no alpha. */
+/* Dark-first: the palette lives on the BASE :root, not behind
+   prefers-color-scheme, so HighWire -- a deliberate light-theme UA that does
+   not match the dark media query -- shows the dark theme too, and every
+   modern browser gets it by default.  Colours chosen to hold up at classic
+   Atari colour depths (16/256): a pure-black ground, a warm off-white ink,
+   a light blue and the brand orange -- flat fills, no gradients. */
 :root{
-  --bg:#000000; --fg:#e9e5db; --dim:#9a958a;
-  --accent:#ff9450; --link:#7fb2d8; --panel:#0f0f0f; --line:#333333;
+  --ground:#000000; --ink:#e9e5db; --navy:#7fb2d8; --orange:#ff9450;
 }
 *{box-sizing:border-box}
-html,body{margin:0;background:var(--bg);color:var(--fg)}
+html,body{height:100%}
 body{
-  font:400 16px/1.6 ui-sans-serif,system-ui,"Segoe UI",Helvetica,Arial,sans-serif;
-  padding:0 16px;
+  margin:0; background:var(--ground); color:var(--ink);
+  font:400 17px/1.6 ui-sans-serif,system-ui,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  display:grid; place-items:center; text-align:center; padding:24px;
 }
-p{margin:0 0 12px;color:var(--fg)}
-h1,h2,h3{color:var(--fg)}
-a{color:var(--link);text-decoration:none}
-a:hover{text-decoration:underline}
-.wrap{max-width:900px;margin:0 auto}
-
-/* top bar */
-.nav{
-  display:flex;align-items:center;gap:20px;
-  border-bottom:2px solid var(--line);padding:14px 0;margin-bottom:8px;
+img{display:block;width:min(420px,84vw);height:auto;margin:0 auto 34px}
+p{
+  margin:0;font-size:clamp(1.15rem,3vw,1.5rem);font-weight:700;
+  letter-spacing:-.015em;color:var(--navy);text-wrap:balance;
 }
-.nav .brand{font-weight:700;color:var(--accent);font-size:18px;margin-right:auto}
-.nav a{color:var(--fg)}
-
-/* hero */
-.hero{text-align:center;padding:40px 0 24px}
-.hero img{display:block;width:min(460px,90%);height:auto;margin:0 auto 24px}
-.hero h1{margin:0 0 6px;font-size:30px;font-weight:700;letter-spacing:-.01em}
-.hero .sub{margin:0 0 24px;color:var(--link);font-size:20px;font-weight:700}
-.hero .lead{max-width:620px;margin:0 auto 28px;color:var(--fg)}
-
-.btn{
-  display:inline-block;background:var(--accent);color:#000;font-weight:700;
-  padding:12px 26px;border:2px solid var(--accent);font-size:17px;
+hr{
+  width:64px;height:3px;border:0;background:var(--orange);
+  margin:26px auto 0;
 }
-.btn:hover{background:#000;color:var(--accent);text-decoration:none}
-.btn.ghost{background:#000;color:var(--fg);border-color:var(--line)}
-.ver{color:var(--dim);font-size:14px;margin-top:12px}
-
-/* sections */
-section{border-top:2px solid var(--line);padding:34px 0}
-h2{color:var(--accent);font-size:22px;margin:0 0 16px}
-h3{color:var(--fg);font-size:17px;margin:0 0 6px}
-
-/* feature + shot grids */
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
-.card{border:1px solid var(--line);background:var(--panel);padding:18px}
-.card p{margin:0;color:var(--dim)}
-.shot{border:1px solid var(--line);background:var(--panel);padding:8px}
-.shot img{display:block;width:100%;height:auto;border:1px solid var(--line)}
-.shot .cap{color:var(--dim);font-size:13px;padding:8px 2px 2px}
-
-/* news / manual */
-.news{border:1px solid var(--line);background:var(--panel);padding:20px;margin-bottom:16px}
-.news .date{color:var(--dim);font-size:13px}
-.news h3{color:var(--accent)}
-ol.steps{margin:0;padding-left:22px}
-ol.steps li{margin:0 0 10px}
-code{color:var(--accent);font-family:"Courier New",monospace}
-.req p{margin:0 0 12px}
-.req b{color:var(--accent);display:inline-block;min-width:96px}
-.step{margin:0 0 16px;color:var(--fg)}
-.step b.n{color:var(--accent);margin-right:8px}
-
-footer{border-top:2px solid var(--line);padding:26px 0 44px;color:var(--dim);text-align:center}
-footer a{color:var(--link)}
 </style>
 
-<div class="wrap">
-
-  <div class="nav">
-    <span class="brand">HighWire</span>
-    <a href="#news">News</a>
-    <a href="#screens">Screenshots</a>
-    <a href="#manual">Manual</a>
-    <a href="#download">Download</a>
-    <a href="https://github.com/Highwire-Browser">GitHub</a>
-  </div>
-
-  <div class="hero">
-    <img src="logo.png" alt="HighWire &mdash; why take a taxi, when you can fly?">
-    <h1>A native web browser for Atari</h1>
-    <p class="sub">Why take a taxi, when you can fly?</p>
-    <p class="lead">HighWire renders the modern web &mdash; real HTML and CSS,
-      flexbox and grid &mdash; and reaches HTTPS sites through Mbed TLS, on TOS,
-      FreeMiNT and MagiC. And it does it with the speed the platform is loved for.</p>
-    <a class="btn" href="#download">Download Beta</a>
-    <p class="ver">0.5.0 Beta &middot; for 68030 and up</p>
-  </div>
-
-  <section id="news">
-    <h2>News</h2>
-    <div class="news">
-      <div class="date">0.5.0 Beta</div>
-      <h3>HighWire returns</h3>
-      <p>This is the first HighWire in a very long time, and it carries roughly a
-      year of work. The headline is SSL/TLS support through Mbed TLS (TLS 1.2 and
-      1.3), so you can finally reach the secure HTTPS web from your Atari.
-      Alongside it: tabbed browsing, a single modern toolbar in place of the old
-      GEM navigation, settings, fonts and cache moved out of dialog boxes into
-      real pages you can read and edit, a proper DOM tree underpinning layout,
-      CSS Grid and Flexbox, downloadable web fonts, and SVG and WebP images.</p>
-      <p>An Apollo/Vampire tester on real hardware put it plainly: &ldquo;works
-      much, much better, loads fine, faster than NetSurf.&rdquo;</p>
-    </div>
-  </section>
-  <section id="about">
-    <h2>What it is</h2>
-    <div class="grid">
-      <div class="card"><h3>The modern web, natively</h3>
-        <p>HTML and CSS rendered on the metal &mdash; including flexbox, grid,
-        custom properties and web fonts &mdash; not a stripped-down subset.</p></div>
-      <div class="card"><h3>Secure by default</h3>
-        <p>HTTPS through Mbed TLS, with certificate verification. TLS session
-        resumption means repeat visits reconnect fast.</p></div>
-      <div class="card"><h3>Built for the platform</h3>
-        <p>Tabbed browsing, GEM chrome, in-app settings. Speaks MiNT-net, STiK
-        and STinG through loadable network modules.</p></div>
-      <div class="card"><h3>Fast where it counts</h3>
-        <p>Speed is what HighWire is loved for. A recent tester on Apollo
-        hardware put it simply: faster than the alternatives.</p></div>
-    </div>
-  </section>
-  <section id="screens">
-    <h2>Screenshots</h2>
-    <div class="grid">
-      <div class="shot"><img src="start.png" alt="HighWire start page">
-        <div class="cap">The start page and tabbed toolbar, running on ARAnyM.</div></div>
-      <div class="shot"><img src="forum.png" alt="Atari-Forum in HighWire">
-        <div class="cap">Atari-Forum over HTTPS, running on ARAnyM.</div></div>
-      <div class="shot"><img src="aage.png" alt="AtariAge in HighWire">
-        <div class="cap">AtariAge, running on ARAnyM.</div></div>
-      <div class="shot"><img src="wikip.png" alt="Wikipedia in HighWire">
-        <div class="cap">Wikipedia's centre globe and language ring, running on ARAnyM.</div></div>
-    </div>
-  </section>
-  <section id="manual">
-    <h2>Getting started</h2>
-    <p class="step"><b class="n">1.</b>Unzip the archive into a folder on your
-      Atari, keeping <code>cacert.pem</code> next to <code>hw_30-60.app</code>
-      &mdash; it is what verifies HTTPS sites.</p>
-    <p class="step"><b class="n">2.</b>Launch <code>hw_30-60.app</code>. The start
-      page opens in the first tab.</p>
-    <p class="step"><b class="n">3.</b>Type an address, or middle- or right-click a
-      link for <b>Open in New Tab</b>. Tabs open, switch and close along the
-      toolbar.</p>
-    <p class="step"><b class="n">4.</b>Settings live on ordinary pages: open
-      <code>about:settings</code>, <code>about:fonts</code> and
-      <code>about:cache</code> from the address bar or the gear icon.</p>
-    <p class="step"><b class="n">5.</b>Hit a rendering or connection problem? Add
-      <code>LOG_SYNC = 1</code> to <code>highwire.cfg</code>, reproduce it, and send
-      the <code>HIGHWIRE.LOG</code> with the page address &mdash; it makes a report
-      far more useful.</p>
-  </section>
-  <section id="download">
-    <h2>Download</h2>
-    <p>HighWire 0.5.0 Beta, for 68030-and-up systems (built 68020&ndash;60).</p>
-    <p style="margin:18px 0 24px">
-      <a class="btn" href="https://github.com/Highwire-Browser/Highwire-Browser.github.io/releases/download/v0.5.0-beta/HW-050-beta.zip">HW-050-beta.zip</a>
-    </p>
-    <div class="req">
-      <p><b>CPU</b> 68030 or faster; a 68060 is strongly suggested.</p>
-      <p><b>Graphics</b> A Speedo-capable GDOS &mdash; SpeedoGDOS, NVDI&nbsp;3+, or fVDI.</p>
-      <p><b>Network</b> A MiNT-net or STiK/STinG stack (modules included).</p>
-      <p><b>Memory</b> Plenty of free ST and TT RAM &mdash; modern pages are large.</p>
-    </div>
-    <p style="color:var(--dim);margin-top:18px">Some modern, script-heavy sites
-      may not display in full.</p>
-  </section>
-
-  <footer>
-    <p>HighWire &mdash; a web browser for Atari 68k (TOS / FreeMiNT / MagiC).<br>
-      Keeping the Atari web alive.</p>
-  </footer>
-
-</div>
+<main>
+  <img alt="HighWire — why take a taxi, when you can fly?" src="logo.png">
+  <p>Future home of the Atari HighWire Browser.</p>
+  <hr>
+</main>
