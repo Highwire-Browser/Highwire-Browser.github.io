@@ -1,13 +1,15 @@
 <title>HighWire — Atari Browser</title>
 <meta name="description" content="Future home of the Atari HighWire Browser.">
 <style>
+/* Dark-first: the palette lives on the BASE :root, not behind
+   prefers-color-scheme, so HighWire -- a deliberate light-theme UA that does
+   not match the dark media query -- shows the dark theme too, and every
+   modern browser gets it by default.  Colours chosen to hold up at classic
+   Atari colour depths (16/256): a pure-black ground, a warm off-white ink,
+   a light blue and the brand orange -- flat fills, no gradients. */
 :root{
-  --ground:#f7f6f1; --ink:#0b1a26; --navy:#093b60; --orange:#f0792a;
+  --ground:#000000; --ink:#e9e5db; --navy:#7fb2d8; --orange:#ff9450;
 }
-@media (prefers-color-scheme:dark){
-  :root:not([data-theme="light"]){ --ground:#0a1620; --ink:#e9e5db; --navy:#7fb2d8; --orange:#ff9450; }
-}
-:root[data-theme="dark"]{ --ground:#0a1620; --ink:#e9e5db; --navy:#7fb2d8; --orange:#ff9450; }
 *{box-sizing:border-box}
 html,body{height:100%}
 body{
