@@ -80,7 +80,9 @@ footer a{color:var(--link)}
     <a href="#news">News</a>
     <a href="#screens">Screenshots</a>
     <a href="#manual">Manual</a>
+    <a href="#about-project">About</a>
     <a href="#download">Download</a>
+    <a href="forks.htm">Open&nbsp;Source</a>
     <a href="https://github.com/Highwire-Browser">GitHub</a>
   </div>
 
@@ -159,22 +161,26 @@ footer a{color:var(--link)}
       far more useful.</p>
   </section>
 
+  <section id="about-project">
+    <h2>About</h2>
+    <p>HighWire is built for a platform nobody ships binaries for any more, against libraries
+      that mostly assume a little-endian machine with a modern libc &mdash; several of them
+      need patching before they work on a 68k at all. The
+      <a href="https://github.com/Highwire-Browser">HighWire-Browser</a> organisation keeps
+      everything needed to build the browser in one place, at the versions it was built
+      against, so it can be rebuilt without rediscovering which libpng we used or why AES-GCM
+      failed on big-endian.</p>
+    <p>HighWire is the work of The HighWire Project. The engine &mdash; parser, scanner,
+      renderer, scheduler and layout &mdash; and the network overlay modules are substantially
+      the work of Ralph ("AltF4") and Dan ("Baldrick"), built on the original Project HighWire
+      source release by Robert Goldsmith.</p>
+  </section>
+
   <section id="opensource">
     <h2>Open source</h2>
-    <p>HighWire stands on open-source libraries, and the changes we made to port
-      them to the Atari 68k are public &mdash; if you build for the platform, they
-      may save you the same work.</p>
-    <div class="grid">
-      <div class="card"><h3><a href="https://github.com/Highwire-Browser/mbedtls">Mbed TLS</a></h3>
-        <p>The TLS/HTTPS engine. Our fork adds the big-endian (m68k) correctness
-        fixes needed to run Mbed&nbsp;TLS&nbsp;3.6 on the 68000 family, on top of
-        the library's own 68020 assembly for the bignum math that TLS handshakes
-        lean on.</p></div>
-      <div class="card"><h3><a href="https://github.com/Highwire-Browser/nanosvg">NanoSVG</a></h3>
-        <p>The SVG parser and rasteriser. Our fork adds clipPath support, nested
-        &lt;svg&gt; handling, and gradient and rasteriser fixes for the shapes
-        real sites use.</p></div>
-    </div>
+    <p>HighWire's TLS and SVG libraries needed 68k / big-endian patches to work at all, and
+      those forks are public &mdash; the mbedTLS handshake fixes and the nanosvg rasteriser
+      fixes. <a href="forks.htm">The forks, the bugs we fixed, and how to build &rarr;</a></p>
   </section>
 
   <section id="download">
