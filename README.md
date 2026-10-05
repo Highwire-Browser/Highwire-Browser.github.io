@@ -6,7 +6,7 @@ HighWire renders today's web on hardware from the late 1980s: TLS 1.3, CSS,
 downloadable web fonts and modern image formats, on a 68030 with a few megabytes
 of RAM. It has been in development, on and off, since the 1990s.
 
-**Current release: v0.5.0 Beta 2.**
+**Current release: v0.5.0 Beta 4** (builds for 68020–60, 68000, 68000 without SSL, and ColdFire).
 
 This repository holds the project's landing page, published at
 <https://highwire-browser.github.io>. The page is a placeholder for now.

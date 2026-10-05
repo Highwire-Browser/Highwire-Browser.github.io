@@ -94,11 +94,29 @@ footer a{color:var(--link)}
       flexbox and grid &mdash; and reaches HTTPS sites through Mbed TLS, on TOS,
       FreeMiNT and MagiC. And it does it with the speed the platform is loved for.</p>
     <a class="btn" href="#download">Download Beta</a>
-    <p class="ver">0.5.0 Beta &middot; for 68030 and up</p>
+    <p class="ver">0.5.0 Beta 4 &middot; for 68000 and up, and ColdFire</p>
   </div>
 
   <section id="news">
     <h2>News</h2>
+    <div class="news">
+      <div class="date">0.5.0 Beta 4</div>
+      <h3>A quick release, with 68000 and ColdFire builds</h3>
+      <p>This is a quick release with various bug fixes. It is the first release
+      with 68000 and ColdFire support, and those builds have not been fully
+      tested yet. The 68000 build uses software floating point; the 68020&ndash;60
+      and ColdFire builds use the hardware FPU. NanoSVG, which draws SVG images,
+      works in floating point, so SVG is slowest on the 68000. A 68000 build
+      without SSL is also included, for local pages and for HTTP proxies such as
+      WebOne.</p>
+      <p>New in this release: Copy and Paste for text, animated GIFs, an optional
+      screen buffer, much more complete flexbox and grid, line-height,
+      <code>position: fixed</code>, viewport units, styled buttons and text
+      fields, live <code>:focus</code> styles, resumable downloads and run-time
+      switches for SVG, WebP, HTTPS, GIF animation and the screen buffer.</p>
+      <p>The next full release will be HighWire 1.0, to avoid problems with
+      another project.</p>
+    </div>
     <div class="news">
       <div class="date">0.5.0 Beta</div>
       <h3>HighWire returns</h3>
@@ -185,18 +203,20 @@ footer a{color:var(--link)}
 
   <section id="download">
     <h2>Download</h2>
-    <p>HighWire 0.5.0 Beta, for 68030-and-up systems (built 68020&ndash;60).</p>
+    <p>HighWire 0.5.0 Beta 4 &mdash; builds for 68020&ndash;60, 68000 (no FPU needed), 68000 without SSL, and ColdFire&nbsp;V4e.</p>
     <p style="margin:18px 0 24px">
-      <a class="btn" href="https://github.com/Highwire-Browser/Highwire-Browser.github.io/releases/download/v0.5.0-beta3/HW-050b3.zip">HW-050-beta.zip</a>
+      <a class="btn" href="https://github.com/Highwire-Browser/Highwire-Browser.github.io/releases/download/v0.5.0-beta4/HW-050b4.zip">HW-050b4.zip</a>
     </p>
     <div class="req">
-      <p><b>CPU</b> 68030 or faster; a 68060 is strongly suggested.</p>
+      <p><b>CPU</b> 68030 or faster; a 68060 is strongly suggested. A slower 68000 build (no FPU needed) and a ColdFire build are included.</p>
       <p><b>Graphics</b> A Speedo-capable GDOS &mdash; SpeedoGDOS, NVDI&nbsp;3+, or fVDI.</p>
       <p><b>Network</b> A MiNT-net or STiK/STinG stack (modules included).</p>
       <p><b>Memory</b> Plenty of free ST and TT RAM &mdash; modern pages are large.</p>
     </div>
-    <p style="color:var(--dim);margin-top:18px">Some modern, script-heavy sites
+    <p style="color:var(--dim);margin-top:18px">JavaScript is not supported in this release; some modern, script-heavy sites
       may not display in full.</p>
+    <p style="color:var(--dim)">GitHub only serves downloads over https. A HighWire without SSL
+      (<code>hw_00ns.app</code>) cannot fetch this file itself: use a proxy such as WebOne, or copy it over from another machine.</p>
   </section>
 
   <footer>
